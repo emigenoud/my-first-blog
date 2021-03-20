@@ -1,32 +1,13 @@
-<html>
-    <head>
-        <title>Las Pastillas del Abuelo-</title>
-        <div>
-        <h1>Las Pastillas del Abuelo - El Sensei</h1>
-        </div>
+{% extends 'blog/base.html' %}
 
+{% block content %}
 {% for post in posts %}
-        <div>
-        <p> publicado: {{ post.published_date }}</p>
-        <h2><a href="">{{ post.title }}</a></h2>
+    <div class="post">
+        <div class="date">
+            <p>publicado: {{ post.published_date }}</p>
+        </div>
+        <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
         <p>{{ post.text|linebreaksbr }}</p>
-        </div>
-        {% endfor %}
-
-        <div>
-        <h3>En serio funciona</h3>
-
-        </div>
-
-        <div>
-        <h4>Si no me crees, fijate</h4>
-      </div>
-        <h5>Dale man no seas malo</h5>
-        <h6>Bueno me cansaste</h6>
-        <a href="https://www.youtube.com/watch?v=vC33KSOkmk8&ab_channel=JuanFrete">link</a>
-    </head>
-<body>
-    <em>Empieza el ritual</em>
-    <strong>No puede ser</strong>
-</body>
-</html>
+    </div>
+{% endfor %}
+{% endblock %}
